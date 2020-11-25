@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 1em;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAQElEQVQIW2P89OvDfwYo+PHjJ4zJwMHBzsAIk0SXAKkCS2KTAEu++vQSbizIKGQAl0SXAJkGlsQmAbcT2Shk+wH0sCzAEOZW1AAAAABJRU5ErkJggg==);
+}
+
+a {
+    color: #739931;
+}
+
+h1 {
+    color: #006400;
+}
+
+h3 {
+    color: #38B000;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.container {
+    max-width: 60em;
+    margin: 0 auto;
+}
+
+table th, table td {
+    text-align: left;
+}
+
+table.layout {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.display {
+    margin: 1em 0;
+}
+
+table.display th, table.display td {
+    border: 1px solid #B3BFAA;
+    padding: .5em 1em;
+}
+
+table.display th {
+    background: #9EF01A;
+}
+
+table.display td {
+    background: #fff;
+}
+
+table.responsive-table {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 820px) {
+    table.responsive-table {
+        box-shadow: none;
+    }
+    table.responsive-table thead {
+        display: none;
+    }
+    table.display th, table.display td {
+        padding: .5em;
+    }
+    table.responsive-table td:nth-child(1):before {
+        content: 'References';
+    }
+    table.responsive-table td:nth-child(2):before {
+        content: 'GTIN';
+    }
+    table.responsive-table td:nth-child(1), table.responsive-table td:nth-child(2) {
+        padding-left: 25%;
+    }
+    table.responsive-table td:nth-child(1):before, table.responsive-table td:nth-child(2):before {
+        position: absolute;
+        left: .5em;
+        font-weight: bold;
+    }
+    table.responsive-table tr, table.responsive-table td {
+        display: block;
+    }
+    table.responsive-table tr {
+        position: relative;
+        margin-bottom: 1em;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+    }
+    table.responsive-table td {
+        border-top: none;
+    }
+    table.responsive-table td.gtin {
+        background: #9EF01A;
+        border-top: 1px solid #B3BFAA;
+    }
+    table.responsive-table td.actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background: none;
+    }
+}
+
+/* Modify.html*/
+
+input[type=text] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+    transition: .3s border-color;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    width: 50%;
+}
+
+input:hover {
+    border: 1px solid rgb(0, 0, 0);
+}
+
+input[type=submit] {
+    /* remove default behavior */
+    appearance: none;
+    -webkit-appearance: none;
+    /* usual styles */
+    padding: 10px;
+    border: none;
+    background-color: #9EF01A;
+    color: #fff;
+    font-weight: 600;
+    color: black;
+    border-radius: 5px;
+    width: 50%;
+}
+
+#actions {
+    text-align: center;
+}
+
+#expired_date, .errorlist {
+    background-color: #FF0000;
+}

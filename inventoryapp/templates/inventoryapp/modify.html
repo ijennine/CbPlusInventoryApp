@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify product</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'inventoryapp/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Modify a Product</h1>
+        <ul>
+            <li><h3>Reference: </h3><span>{{ product.reference }}</span></li>
+            <li><h3>GTIN: </h3><span>{{ product.product_gtin }}</span></li>
+            <li><h3>Expiry Date: </h3><span>{{ product.expiry_date }}</span></li>
+        </ul>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }} <br><br>
+            <input type="submit" value="Modify">
+        </form>
+    </div>
+</body>
+
+</html>

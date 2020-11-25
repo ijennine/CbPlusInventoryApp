@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory App</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'InventoryApp/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>List of Products and their expiry dates</h1>
+        {% if products_list %}
+        <table class="layout display responsive-table">
+            <thead>
+                <tr>
+                    <th>References</th>
+                    <th>Product GTIN</th>
+                    <th>Product Expiry date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products_list %}
+                <tr>
+                    <td class="ref">{{product.reference}}</td>
+                    <td class="gtin">{{product.product_gtin}}</td>
+                    {% if product not in expired_products %}
+                    <td class="date">{{product.expiry_date}}</td>
+                    {% else %}
+                    <td id="expired_date">{{product.expiry_date}}</td>
+                    {% endif %}
+                    <td id="actions">
+                        <form action="{% url 'inventoryapp:modify' product.reference %}">
+                            <input type="submit" value="Modify">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No Product is available</p>
+        {% endif %}
+        <form action="{% url 'inventoryapp:productForm' %}">
+            <input type="submit" value="Add a Product">
+        </form>
+    </div>
+</body>
+
+</html>
